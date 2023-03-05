@@ -85,12 +85,44 @@ body {
     font-weight: bold;
   }
   
-  .customerfeedback {
+  .flexcontainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
   }
+
+  .faq-section {
+	margin: 50px 0;
+}
+
+.faq-section h2 {
+	font-size: 28px;
+	margin-bottom: 20px;
+}
+
+.faq {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.faq-item {
+	flex: 1;
+	padding: 20px;
+	background-color: #f2f2f2;
+	margin: 10px;
+}
+
+.faq-item h3 {
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+.faq-item p {
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 0;
+}
   
   /* FOOTER */
   footer {
