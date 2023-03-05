@@ -24,18 +24,19 @@
     </header>
     <main>
         <div class="flexcontainer">
-            <form action="submit-form.php" method="POST">
-                <label for="First name">First Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
-                <label for="surname">Surame:</label>
-                <input type="text" id="name" name="name" required><br><br>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <label for="name">Name:</label>
+                <input type="text" name="name" value="<?php echo isset($_POST["name"]) ? htmlspecialchars($_POST["name"]) : ""; ?>" required>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
+                <input type="email" name="email" value="<?php echo isset($_POST["email"]) ? htmlspecialchars($_POST["email"]) : ""; ?>" required>
                 <label for="password">Password:</label>
-                <input type="text" id="name" name="name" required><br><br>
-                <input type="submit" value="Submit">
+                <input type="password" name="password" required>
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" name="confirm_password" required>
+                <button type="submit" name="register">Register</button>
             </form>
         </div>
+        <p>Already have an account? <a href="login.php">Login here</a></p>
     </main>
     <footer>
         <p>&copy; 2023 Touries Inc. All rights reserved.</p>
