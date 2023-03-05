@@ -17,11 +17,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: right;
-  }
-
-  .centre{
-    text-align: center;
+    justify-content: center;
   }
 
   nav li {
@@ -36,6 +32,10 @@ body {
   
   nav a:hover {
     text-decoration: underline;
+  }
+
+  .centre{
+    text-align: center;
   }
   
   /* MAIN CONTENT */
@@ -52,21 +52,6 @@ body {
     font-weight: bold;
     margin-bottom: 10px;
   }
-
-  .customerfeedback {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .contactinfo {
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  
   
   input,
   textarea {
@@ -96,14 +81,15 @@ body {
     margin-top: 20px;
   }
   
-  #contactfooterlist li {
-    margin-bottom: 10px;
-    list-style-type: none;
-    text-align: center;
-  }
-  
   strong {
     font-weight: bold;
+  }
+  
+  .customerfeedback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
   
   /* FOOTER */
@@ -114,4 +100,6 @@ body {
     padding: 10px;
     margin-top: 20px;
   }
-  
+
+
+ 
