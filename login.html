@@ -16,14 +16,15 @@
             <ul id>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="browsestories.html">Stories</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="register.html">Sign Up</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="flexcontainer">
+        <h2>Login</h2>
+        <div class="login-container">
             <?php if (isset($error_message)) { ?>
               <div class="error"><?php echo $error_message; ?></div>
             <?php } ?>
@@ -35,8 +36,9 @@
               <input type="submit" value="Sign In">
             </form>
         </div>
-        <div class="centre">
-            <p>New User? <a href="register.html">Sign Up</a></p>
+        <br>
+        <div>
+            <h6>New User? <a href="register.html">Sign Up</a></h6>
         </div>
     </main>
     <footer>
@@ -47,6 +49,13 @@
                     <nav>
                         <ul>
                             <li><a href="faq.html">Frequently Asked Questions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col">
+                    <nav>
+                        <ul>
+                            <li><a href="admin.html">Admin</a></li>
                         </ul>
                     </nav>
                 </div>

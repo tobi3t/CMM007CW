@@ -16,24 +16,29 @@
             <ul id>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="browsestories.html">Stories</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="register.html">Sign Up</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="flexcontainer">
+        <h2>Admin</h2>
+        <div class="login-container">
             <?php if (isset($error_message)) { ?>
                 <div class="error"><?php echo $error_message; ?></div>
               <?php } ?>
               <form action="signin.php" method="POST">
-                <label for="email">Admin Email:</label>
+                <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 <input type="submit" value="Sign In">
               </form>
+        </div>
+        <br>
+        <div>
+            <h6>Not an Admin? <a href="login.html">User Login Instead</a></h6>
         </div>
     </main>
     <footer>
