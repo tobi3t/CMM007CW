@@ -24,7 +24,7 @@
     </header>
     <main>
         <h2>Sign Up</h2>
-        <div class="login-container">
+        <div class="formholder">
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <label for="name">Name:</label>
                 <input type="text" name="name" value="<?php echo isset($_POST["name"]) ? htmlspecialchars($_POST["name"]) : ""; ?>" required>
@@ -37,7 +37,7 @@
                 <button type="submit" name="register">Register</button>
             </form>
         </div>
-        <h6>Already have an account? <a href="login.php">Login here</a></h6>
+        <h6>Already have an account? <a href="login.html">Login here</a></h6>
     </main>
     <footer>
         <p>&copy; 2023 Touries Inc. All rights reserved.</p>
