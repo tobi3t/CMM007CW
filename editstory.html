@@ -23,12 +23,34 @@
         </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="row">
-                <div class="col">Col One</div>
-                <div class="col">Col Two</div>
-                <div class="col">Col Three</div>
-            </div>
+        <h1>Edit Story</h1>
+        <?php
+    // Retrieve the story to be edited from the database
+    $story_id = $_GET['id'];
+    $conn = mysqli_connect('localhost', 'username', 'password', 'database_name');
+    $query = "SELECT * FROM stories WHERE id=$story_id";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+  ?>
+        <div class="formholder">
+            <form action="update_story.php?id=<?php echo $story_id ?>" method="post" enctype="multipart/form-data">
+                <label for="title">Title:</label>
+                <input type="text" name="title" value="<?php echo $row['title'] ?>" required>
+                <br>
+                <label for="persona">Persona:</label>
+                <textarea name="persona" required><?php echo $row['persona'] ?></textarea>
+                <br>
+                <label for="scenario">Scenario:</label>
+                <textarea name="scenario" required><?php echo $row['scenario'] ?></textarea>
+                <br>
+                <label for="story">Story:</label>
+                <textarea name="story" required><?php echo $row['story'] ?></textarea>
+                <br>
+                <label for="image">Image:</label>
+                <input type="file" name="image">
+                <br>
+                <input type="submit" value="Update">
+            </form>
         </div>
     </main>
     <footer>
@@ -45,7 +67,7 @@
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="contactus.html">Reader's Feedback</a></li>  
+                            <li><a href="contactus.html">Reader's Feedback</a></li>
                         </ul>
                     </nav>
                 </div>

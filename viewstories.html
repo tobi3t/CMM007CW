@@ -23,12 +23,44 @@
         </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="row">
-                <div class="col">Col One</div>
-                <div class="col">Col Two</div>
-                <div class="col">Col Three</div>
-            </div>
+        <div>
+            <h1>View Stories</h1>
+            <table>
+              <tr>
+                <th>Title</th>
+                <th>Persona</th>
+                <th>Scenario</th>
+                <th>Story</th>
+                <th>Image</th>
+              </tr>
+              <?php
+              $servername = "localhost";
+              $username = "username";
+              $password = "password";
+              $dbname = "myDB";
+          
+              // Create connection
+              $conn = new mysqli($servername, $username, $password, $dbname);
+          
+              // Check connection
+              if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+              }
+          
+              $sql = "SELECT * FROM stories";
+              $result = $conn->query($sql);
+          
+              if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                  echo "<tr><td>" . $row["title"]. "</td><td>" . $row["persona"]. "</td><td>" . $row["scenario"]. "</td><td>" . $row["story"]. "</td><td>" . $row["image"]. "</td></tr>";
+                }
+              } else {
+                echo "0 results";
+              }
+              $conn->close();
+              ?>
+            </table>
         </div>
     </main>
     <footer>
