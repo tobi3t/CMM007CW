@@ -28,24 +28,41 @@
             <form action="submit_story.php" method="post" enctype="multipart/form-data">
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" required>
-        
+
                 <label for="location">Location:</label>
                 <select id="location" name="location" required>
-                  <option value="persona1">Persona 1</option>
-                  <option value="persona2">Persona 2</option>
-                  <option value="persona3">Persona 3</option>
+                    <option value="London">London</option>
+                    <option value="Manchester">Manchester</option>
+                    <option value="Birmingham">Birmingham</option>
+                    <option value="Liverpool">Liverpool</option>
+                    <option value="Glasgow">Glasgow</option>
+                    <option value="Edinburgh">Edinburgh</option>
+                    <option value="Belfast">Belfast</option>
+                    <option value="Dublin">Dublin</option>
+                    <option value="Newcastle">Newcastle</option>
+                    <option value="Leeds">Leeds</option>
+                    <option value="Cardiff">Cardiff</option>
+                    <option value="Bristol">Bristol</option>
+                    <option value="Southampton">Southampton</option>
+                    <option value="Portsmouth">Portsmouth</option>
+                    <option value="Sheffield">Sheffield</option>
+                    <option value="Nottingham">Nottingham</option>
+                    <option value="Cambridge">Cambridge</option>
+                    <option value="Norwich">Norwich</option>
+                    <option value="Plymouth">Plymouth</option>
+                    <option value="Exeter">Exeter</option>
                 </select>
                 <label for="subject">Subject:</label>
                 <textarea id="subject" name="subject" required></textarea>
-        
+
                 <label for="story">User Story:</label>
                 <textarea id="story" name="story" required></textarea>
-        
+
                 <label for="image">Attach Image:</label>
                 <input type="file" id="image" name="image">
-        
+
                 <button type="submit">Submit</button>
-              </form>
+            </form>
         </div>
     </main>
     <footer>
