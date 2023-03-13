@@ -1,23 +1,24 @@
 <?php
+include("connection.php");
 // Get the form values
 $title = $_POST['title'];
-$persona = $_POST['persona'];
-$scenario = $_POST['scenario'];
+$location = $_POST['location'];
+$subject = $_POST['subject'];
 $story = $_POST['story'];
 
 // Connect to the database
 $host = 'localhost';  
-$dbname = 'your_database_name'; 
-$username = 'your_database_username'; 
-$password = 'your_database_password';  
+$dbname = 'storytelling'; 
+$username = 'root'; 
+$password = '';  
 $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
 
-// Insert the user story into the database
-$sql = "INSERT INTO user_stories (title, persona, scenario, story) VALUES (:title, :persona, :scenario, :story)";
+// Insert the user story into the database 
+$sql = "INSERT INTO user_stories (title, location, subject, story) VALUES (:title, :location, :subject, :story)";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':title', $title);
-$stmt->bindParam(':persona', $persona);
-$stmt->bindParam(':scenario', $scenario);
+$stmt->bindParam(':location', $location);
+$stmt->bindParam(':subject', $subject);
 $stmt->bindParam(':story', $story);
 $stmt->execute();
 
@@ -45,7 +46,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
   $stmt->execute();
 }
 
-// Redirect the user back to the main page
-header('Location: index.php');
+// Redirect the user back to their profile
+header('Location: profile.php');
 exit();
 ?>

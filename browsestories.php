@@ -14,11 +14,11 @@
     <header>
         <nav>
             <ul id>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="browsestories.php">Stories</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html">Sign Up</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="register.php">Sign Up</a></li>
+                <li><a href="contactus.php">Contact Us</a></li>
             </ul>
         </nav>
     </header>
@@ -70,14 +70,14 @@
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="faq.html">Frequently Asked Questions</a></li>
+                            <li><a href="faq.php">Frequently Asked Questions</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="contactus.html">Reader's Feedback</a></li>  
+                            <li><a href="contactus.php">Reader's Feedback</a></li>  
                         </ul>
                     </nav>
                 </div>

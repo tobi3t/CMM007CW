@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Thank You</title>
+    <title>Create New Story</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
@@ -14,26 +14,39 @@
     <header>
         <nav>
             <ul id>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="browsestories.php">Stories</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.php">Login</a></li>
                 <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="contactus.php">Contact Us</a></li>
+
             </ul>
         </nav>
     </header>
     <main>
-        <h1 class="centre">Thank You</h1>
-        <p>We would like to extend our sincere gratitude to you for taking the time to provide us with your valuable
-            feedback. Your thoughts and opinions are important to us and will help us improve our products and services
-            to better meet your needs.</p>
-        <p>At Touries Inc, we are committed to providing the highest level of reader satisfaction, and your feedback
-            is an essential part of this process. We appreciate your honesty and willingness to share your experiences
-            with us.</p>
-        <p>We have taken note of your comments and will use them to enhance our offerings and address any areas of
-            concern. Please rest assured that we will continue to strive to exceed your expectations and provide you
-            with the best possible experience.</p>
-        <p>Once again, thank you for choosing Touries Inc. We look forward to serving you again in the future.</p>
+        <div class="formholder">
+            <form action="submit_story.php" method="post" enctype="multipart/form-data">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+        
+                <label for="location">Location:</label>
+                <select id="location" name="location" required>
+                  <option value="persona1">Persona 1</option>
+                  <option value="persona2">Persona 2</option>
+                  <option value="persona3">Persona 3</option>
+                </select>
+                <label for="subject">Subject:</label>
+                <textarea id="subject" name="subject" required></textarea>
+        
+                <label for="story">User Story:</label>
+                <textarea id="story" name="story" required></textarea>
+        
+                <label for="image">Attach Image:</label>
+                <input type="file" id="image" name="image">
+        
+                <button type="submit">Submit</button>
+              </form>
+        </div>
     </main>
     <footer>
         <p>&copy; 2023 Touries Inc. All rights reserved.</p>
@@ -42,14 +55,14 @@
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="faq.html">Frequently Asked Questions</a></li>
+                            <li><a href="faq.php">Frequently Asked Questions</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="contactus.html">Reader's Feedback</a></li>
+                            <li><a href="contactus.php">Reader's Feedback</a></li>
                         </ul>
                     </nav>
                 </div>

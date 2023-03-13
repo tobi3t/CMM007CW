@@ -14,11 +14,11 @@
     <header>
         <nav>
             <ul id>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="browsestories.php">Stories</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.php">Login</a></li>
                 <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="contactus.php">Contact Us</a></li>
             </ul>
         </nav>
     </header>
@@ -37,7 +37,7 @@
                 <button type="submit" name="register">Register</button>
             </form>
         </div>
-        <h6>Already have an account? <a href="login.html">Login here</a></h6>
+        <h6>Already have an account? <a href="login.php">Login here</a></h6>
     </main>
     <footer>
         <p>&copy; 2023 Touries Inc. All rights reserved.</p>
@@ -46,14 +46,14 @@
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="faq.html">Frequently Asked Questions</a></li>
+                            <li><a href="faq.php">Frequently Asked Questions</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="contactus.html">Reader's Feedback</a></li>  
+                            <li><a href="contactus.php">Reader's Feedback</a></li>  
                         </ul>
                     </nav>
                 </div>

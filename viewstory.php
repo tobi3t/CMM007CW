@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit Story</title>
+    <title>Story</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
@@ -13,44 +13,22 @@
 <body>
     <header>
         <nav>
-            <ul id>
-                <li><a href="index.html">Home</a></li>
+            <ul>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="browsestories.php">Stories</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.php">Login</a></li>
                 <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="contactus.php">Contact Us</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Edit Story</h1>
-        <?php
-    // Retrieve the story to be edited from the database
-    $story_id = $_GET['id'];
-    $conn = mysqli_connect('localhost', 'username', 'password', 'database_name');
-    $query = "SELECT * FROM stories WHERE id=$story_id";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
-  ?>
-        <div class="formholder">
-            <form action="update_story.php?id=<?php echo $story_id ?>" method="post" enctype="multipart/form-data">
-                <label for="title">Title:</label>
-                <input type="text" name="title" value="<?php echo $row['title'] ?>" required>
-                <br>
-                <label for="persona">Persona:</label>
-                <textarea name="persona" required><?php echo $row['persona'] ?></textarea>
-                <br>
-                <label for="scenario">Scenario:</label>
-                <textarea name="scenario" required><?php echo $row['scenario'] ?></textarea>
-                <br>
-                <label for="story">Story:</label>
-                <textarea name="story" required><?php echo $row['story'] ?></textarea>
-                <br>
-                <label for="image">Image:</label>
-                <input type="file" name="image">
-                <br>
-                <input type="submit" value="Update">
-            </form>
+        <div class="container">
+            <div class="row">
+                <div class="col">Col One</div>
+                <div class="col">Col Two</div>
+                <div class="col">Col Three</div>
+            </div>
         </div>
     </main>
     <footer>
@@ -60,14 +38,14 @@
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="faq.html">Frequently Asked Questions</a></li>
+                            <li><a href="faq.php">Frequently Asked Questions</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="contactus.html">Reader's Feedback</a></li>
+                            <li><a href="contactus.php">Reader's Feedback</a></li>  
                         </ul>
                     </nav>
                 </div>
@@ -85,4 +63,4 @@
         crossorigin="anonymous"></script>
 </body>
 
-</html>s
+</html>

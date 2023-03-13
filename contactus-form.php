@@ -1,4 +1,5 @@
 <?php
+include("connection.php"); 
 
 // check if the form has been submitted
 if (isset($_POST['submit'])) {
@@ -9,7 +10,7 @@ if (isset($_POST['submit'])) {
   $message = $_POST['message'];
 
   // set the recipient email address
-  $to = 'youremail@example.com';
+  $to = 'tobi3t@gmail.com';
 
   // set the email subject
   $subject = 'New Contact Form Submission';
@@ -24,12 +25,12 @@ if (isset($_POST['submit'])) {
 
   // send the email
   if (mail($to, $subject, $message, $headers)) {
-    // redirect to a success page
-    header('Location: success.html');
+    // redirect to the thank you page
+    header('Location: thankyou.php');
     exit;
   } else {
     // redirect to an error page
-    header('Location: error.html');
+    header('Location: contactus.php');
     exit;
   }
 

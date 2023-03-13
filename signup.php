@@ -1,4 +1,5 @@
 <?php
+include("connection.php");
 
 $name = $email = $password = $confirm_password = "";
 $name_error = $email_error = $password_error = $confirm_password_error = "";

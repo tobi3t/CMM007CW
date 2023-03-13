@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact Us</title>
+    <title>Admin Login Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
@@ -14,40 +14,31 @@
     <header>
         <nav>
             <ul id>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="browsestories.php">Stories</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.php">Login</a></li>
                 <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="contactus.php">Contact Us</a></li>
             </ul>
         </nav>
     </header>
-    <main class=>
-        <h1>Reader's Feedback</h1>
-        <h6>We are committed to providing the best possible experience for our storyseekers, and we value your feedback.</h6> 
-        <h6>Your input is essential to help us improve our website and the services we offer.</h6>
-        <br>
+    <main>
+        <h2>Admin</h2>
         <div class="formholder">
-            <form action="submit-form.php" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
+            <?php if (isset($error_message)) { ?>
+                <div class="error"><?php echo $error_message; ?></div>
+              <?php } ?>
+              <form action="signin.php" method="POST">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required><br><br>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
-                <input type="submit" value="Submit">
-            </form>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" value="Sign In">
+              </form>
         </div>
         <br>
-        <div class="centre">
-            <p>You can also contact us direct</p>
-
-            <p><strong>Email:</strong><a href="mailto:e.oloruntobi@rgu.ac.uk">e.oloruntobi@rgu.ac.uk</a></p>
-            <p><strong>Phone:</strong> +44-245-7894-234</p>
-            <p><strong>Address:</strong> Garthdee, Aberdeen, Scotland, UK</p>
-
+        <div>
+            <h6>Not an Admin? <a href="login.html">User Login Instead</a></h6>
         </div>
     </main>
     <footer>
@@ -55,7 +46,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <nav>
+                    <nav class="centre">
                         <ul>
                             <li><a href="faq.html">Frequently Asked Questions</a></li>
                         </ul>

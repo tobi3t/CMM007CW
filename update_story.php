@@ -1,4 +1,5 @@
 <?php
+  include("connection.php");
   $story_id = $_GET['id'];
   $conn = mysqli_connect('localhost', 'username', 'password', 'database_name');
 

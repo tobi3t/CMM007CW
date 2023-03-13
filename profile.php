@@ -1,10 +1,21 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    
+</body>
+</html><!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Login Page</title>
+    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
@@ -14,31 +25,21 @@
     <header>
         <nav>
             <ul id>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="browsestories.php">Stories</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.php">Login</a></li>
                 <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="contactus.php">Contact Us</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h2>Admin</h2>
-        <div class="formholder">
-            <?php if (isset($error_message)) { ?>
-                <div class="error"><?php echo $error_message; ?></div>
-              <?php } ?>
-              <form action="signin.php" method="POST">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <input type="submit" value="Sign In">
-              </form>
-        </div>
-        <br>
-        <div>
-            <h6>Not an Admin? <a href="login.html">User Login Instead</a></h6>
+        <div class="container">
+            <div class="row">
+                <div class="col">Col One</div>
+                <div class="col">Col Two</div>
+                <div class="col">Col Three</div>
+            </div>
         </div>
     </main>
     <footer>
@@ -46,16 +47,16 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <nav class="centre">
+                    <nav>
                         <ul>
-                            <li><a href="faq.html">Frequently Asked Questions</a></li>
+                            <li><a href="faq.php">Frequently Asked Questions</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="contactus.html">Reader's Feedback</a></li>  
+                            <li><a href="contactus.php">Reader's Feedback</a></li>  
                         </ul>
                     </nav>
                 </div>
