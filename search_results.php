@@ -11,8 +11,8 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
 	while($row = mysqli_fetch_assoc($result)) {
 		echo "<h2>" . $row["title"] . "</h2>";
-		echo "<p>" . $row["persona"] . "</p>";
-		echo "<p>" . $row["scenario"] . "</p>";
+		echo "<p>" . $row["location"] . "</p>";
+		echo "<p>" . $row["subject"] . "</p>";
 		echo "<p>" . $row["story"] . "</p>";
 	}
 } else {
