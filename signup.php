@@ -50,12 +50,12 @@ if(isset($_POST['register'])) {
 	}
 
 	if(empty($errors)) {
-		// Use prepared statements to insert data into database
+		// Insert data into database
 		$stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
 		$stmt->bind_param("sss", $name, $email, $password);
 		$stmt->execute();
 		
-		// Redirect user to login page
+		// Redirect storyteller to login page
 		header("Location: login.php");
 		exit();
 	}
