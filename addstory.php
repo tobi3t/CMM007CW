@@ -1,3 +1,13 @@
+<?php
+// Start the session to retrieve the storyteller's authentication status
+session_start();
+
+// Check if the storyteller is not authenticated, if yes, redirect to the login page
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
+  header('Location: index.php');
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -13,23 +23,21 @@
 <body>
     <header>
         <nav>
-            <ul id>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="browsestories.php">Stories</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.php">Contact Us</a></li>
-
+            <ul>
+                <?php echo 'Welcome, ' . $_SESSION['email']; ?>
+                <li><a href="addstory.php">Add Story</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <div class="formholder">
-            <form action="submit_story.php" method="post" enctype="multipart/form-data">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
-
-                <label for="location">Location:</label>
+        <form method="POST" action="add_story.php">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required>
+            <br>
+  
+            <label for="location">Location:</label>
                 <select id="location" name="location" required>
                     <option value="London">London</option>
                     <option value="Manchester">Manchester</option>
@@ -52,15 +60,20 @@
                     <option value="Plymouth">Plymouth</option>
                     <option value="Exeter">Exeter</option>
                 </select>
+                <br>
+  
+            <label for="story">Story:</label>
+            <textarea name="story" id="story" rows="10" required></textarea>
+            <br>
 
-                <label for="story">User Story:</label>
-                <textarea id="story" name="story" required></textarea>
-
-                <label for="image">Attach Image:</label>
-                <input type="file" id="image" name="image">
-
-                <button type="submit">Submit</button>
-            </form>
+            <label for="image">Image:</label>
+            <input type="file" name="image">
+            <br>
+  
+            <input type="hidden" name="user_id" value="user_id"> <!-- Replace [user_id] with the actual user ID -->
+  
+            <button type="submit">Submit</button>
+        </form>
         </div>
     </main>
     <footer>

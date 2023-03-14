@@ -25,6 +25,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
         <nav>
             <ul>
                 <?php echo 'Welcome, ' . $_SESSION['email']; ?>
+                <li><a href="addstory.php">Add Story</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>

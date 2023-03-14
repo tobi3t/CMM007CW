@@ -19,6 +19,7 @@ if (mysqli_num_rows($result) == 1) {
   // Store the user's authentication status and email in the session
   $_SESSION['authenticated'] = true;
   $_SESSION['email'] = $row['email'];
+  $_SESSION['user_id'] = $row['user_id'];
   // Redirect the storyteller to the profile page
   header('Location: profile.php');
   exit;
