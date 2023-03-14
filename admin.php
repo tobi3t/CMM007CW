@@ -28,13 +28,15 @@
             <?php if (isset($error_message)) { ?>
                 <div class="error"><?php echo $error_message; ?></div>
               <?php } ?>
-              <form action="signin.php" method="POST">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+              <form method="post" action="adminlogin.php">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
-                <input type="submit" value="Sign In">
-              </form>
+                <br>
+                <input type="submit" name="submit" value="Login">
+            </form>
         </div>
         <br>
         <div>

@@ -1,30 +1,18 @@
 <?php
-include("connection.php"); 
-
-// check if the form has been submitted
-if (isset($_POST['submit'])) {
+include("connection.php");
 
   // get the form data
   $name = $_POST['name'];
   $email = $_POST['email'];
+  $subject = $_POST['subject'];
   $message = $_POST['message'];
 
-  // set the recipient email address
-  $to = 'tobi3t@gmail.com';
+  // Create a new database connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
 
-  // set the email subject
-  $subject = 'New Contact Form Submission';
-
-  // build the email message
-  $message = "Name: $name\n\nEmail: $email\n\nMessage:\n$message";
-
-  // set the email headers
-  $headers = "From: $name <$email>\r\n";
-  $headers .= "Reply-To: $email\r\n";
-  $headers .= "X-Mailer: PHP/" . phpversion();
-
-  // send the email
-  if (mail($to, $subject, $message, $headers)) {
+  // insert the form data into the feedback table
+  $sql = "INSERT INTO feedback (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')";
+  if (mysqli_query($conn, $sql)) {
     // redirect to the thank you page
     header('Location: thankyou.php');
     exit;
@@ -34,6 +22,7 @@ if (isset($_POST['submit'])) {
     exit;
   }
 
-}
 
+// close the database connection
+mysqli_close($conn);
 ?>
