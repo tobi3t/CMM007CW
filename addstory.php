@@ -52,8 +52,6 @@
                     <option value="Plymouth">Plymouth</option>
                     <option value="Exeter">Exeter</option>
                 </select>
-                <label for="subject">Subject:</label>
-                <textarea id="subject" name="subject" required></textarea>
 
                 <label for="story">User Story:</label>
                 <textarea id="story" name="story" required></textarea>

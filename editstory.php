@@ -37,11 +37,8 @@
                 <label for="title">Title:</label>
                 <input type="text" name="title" value="<?php echo $row['title'] ?>" required>
                 <br>
-                <label for="persona">Persona:</label>
-                <textarea name="persona" required><?php echo $row['persona'] ?></textarea>
-                <br>
-                <label for="scenario">Scenario:</label>
-                <textarea name="scenario" required><?php echo $row['scenario'] ?></textarea>
+                <label for="location">Location:</label>
+                <textarea name="location" required><?php echo $row['persona'] ?></textarea>
                 <br>
                 <label for="story">Story:</label>
                 <textarea name="story" required><?php echo $row['story'] ?></textarea>

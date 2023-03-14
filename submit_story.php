@@ -3,7 +3,6 @@ include("connection.php");
 // Get the form values
 $title = $_POST['title'];
 $location = $_POST['location'];
-$subject = $_POST['subject'];
 $story = $_POST['story'];
 
 // Connect to the database
@@ -14,11 +13,10 @@ $password = '';
 $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
 
 // Insert the user story into the database 
-$sql = "INSERT INTO user_stories (title, location, subject, story) VALUES (:title, :location, :subject, :story)";
+$sql = "INSERT INTO user_stories (title, location, story) VALUES (:title, :location, :story)";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':title', $title);
 $stmt->bindParam(':location', $location);
-$stmt->bindParam(':subject', $subject);
 $stmt->bindParam(':story', $story);
 $stmt->execute();
 

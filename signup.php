@@ -37,4 +37,12 @@ if(isset($_POST['register'])) {
 
 	// Validate confirm password
 	if(empty($_POST['confirm_password'])) {
-		$confirm_password_error
+		$confirm_password_error = "Please confirm password";
+	} else {
+		$confirm_password = test_input($_POST['confirm_password']);
+		if($confirm_password !== $password) {
+			$confirm_password_error = "Passwords do not match";
+		}
+	}
+}
+?>
