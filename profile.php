@@ -1,17 +1,16 @@
+<?php
+// Start the session to retrieve the storyteller's authentication status
+session_start();
+
+// Check if the storyteller is not authenticated, if yes, redirect to the login page
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
+  header('Location: index.php');
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-</head>
-<body>
-    
-</body>
-</html><!DOCTYPE html>
-<html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,12 +23,9 @@
 <body>
     <header>
         <nav>
-            <ul id>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="browsestories.php">Stories</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.php">Contact Us</a></li>
+            <ul>
+                <?php echo 'Welcome, ' . $_SESSION['email']; ?>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -44,24 +40,6 @@
     </main>
     <footer>
         <p>&copy; 2023 Touries Inc. All rights reserved.</p>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <nav>
-                        <ul>
-                            <li><a href="faq.php">Frequently Asked Questions</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col">
-                    <nav>
-                        <ul>
-                            <li><a href="contactus.php">Reader's Feedback</a></li>  
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

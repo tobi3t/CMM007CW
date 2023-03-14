@@ -14,8 +14,11 @@ $result = mysqli_query($conn, $query);
 
 // If the query returns a row, the user exists and has the correct password
 if (mysqli_num_rows($result) == 1) {
-  // Store the user's authentication status in the session
+  // Fetch the result row as an associative array
+  $row = mysqli_fetch_assoc($result);
+  // Store the user's authentication status and email in the session
   $_SESSION['authenticated'] = true;
+  $_SESSION['email'] = $row['email'];
   // Redirect the storyteller to the profile page
   header('Location: profile.php');
   exit;

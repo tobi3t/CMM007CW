@@ -25,17 +25,18 @@
     <main>
         <h2>Sign Up</h2>
         <div class="formholder">
-            <form method="post" action="signup.php">
-                <label for="name">Name:</label>
-                <input type="text" name="name" value="<?php echo isset($_POST["name"]) ? htmlspecialchars($_POST["name"]) : ""; ?>" required>
-                <label for="email">Email:</label>
-                <input type="email" name="email" value="<?php echo isset($_POST["email"]) ? htmlspecialchars($_POST["email"]) : ""; ?>" required>
-                <label for="password">Password:</label>
-                <input type="password" name="password" required>
-                <label for="confirm_password">Confirm Password:</label>
-                <input type="password" name="confirm_password" required>
-                <button type="submit" name="register">Register</button>
-            </form>
+          <form method="post" action="signup.php">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <br>
+            <input type="submit" value="Register">
+          </form>
         </div>
         <h6>Already have an account? <a href="login.php">Login here</a></h6>
     </main>
