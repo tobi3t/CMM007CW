@@ -25,6 +25,6 @@ if (mysqli_num_rows($result) == 1) {
   exit;
 } else {
   // If the query returns no rows, the authentication fails
-  $error_message = "Invalid email or password.";
+  header('Location: login.php');;
 }
 ?>

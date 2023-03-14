@@ -72,7 +72,7 @@ $result = $stmt->get_result();
           <td><?php echo $row['story']; ?></td>
           <td><?php echo $row['image']; ?></td>
           <td><a href="editstory.php?id=<?php echo $row['id']; ?>">Edit</a></td>
-          <td><a href="delete_story.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+          <td><a href="deletestory.php?id=<?php echo $row['id']; ?>">Delete</a></td>
         </tr>
       <?php endwhile; ?>
     </tbody>

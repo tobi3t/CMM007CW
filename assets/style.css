@@ -226,6 +226,21 @@ strong {
 	color: #fff;
 }
 
+table {
+  border-collapse: collapse;
+  margin: 50px auto;
+  width: 80%;
+}
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid black;
+}
+th {
+  background-color: #0fe228;
+  color: white;
+}
+
 /* FOOTER */
 footer {
   background-color: #000000;

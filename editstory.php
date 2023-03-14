@@ -1,3 +1,70 @@
+<?php
+// Start the session to retrieve the storyteller's authentication status
+session_start();
+
+// Check if the storyteller is not authenticated, if yes, redirect to the login page
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
+  header('Location: index.php');
+  exit;
+}
+
+include("connection.php");
+
+// Get the story ID from the query string
+$story_id = $_GET['id'];
+
+// Create a new database connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check if the connection was successful
+if ($conn->connect_error) {
+die('Connection failed: ' . $conn->connect_error);
+ }
+
+// Check if the form was submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// Get the form data
+$title = $_POST['title'];
+$location = $_POST['location'];
+$story = $_POST['story'];
+$image = $_POST['image'];
+
+// Prepare the SQL statement
+$sql = "UPDATE stories SET title = '$title', location = '$location', story = '$story', image = '$image' WHERE id = $story_id";
+$result = $conn->query($sql);
+
+    // Check if the query was successful
+    if ($result === TRUE) {
+      // Redirect back to the profile page
+      header('Location: profile.php');
+    } else {
+      // There was an error updating the story
+      echo "Error updating story: " . $conn->error;
+    }
+  } else {
+    // Get the story data from the database
+    $sql = "SELECT * FROM stories WHERE id = $story_id";
+    $result = $conn->query($sql);
+
+    // Check if the query was successful
+    if ($result->num_rows > 0) {
+      // Get the story data
+      $row = $result->fetch_assoc();
+      $title = $row['title'];
+      $location = $row['location'];
+      $story = $row['story'];
+      $image = $row['image'];
+    } else {
+      // No story was found with the specified ID
+      echo "Story not found";
+      exit();
+    }
+  }
+
+  // Close the database connection
+  $conn->close();
+  ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -13,40 +80,38 @@
 <body>
     <header>
         <nav>
-            <ul id>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="browsestories.php">Stories</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.php">Contact Us</a></li>
+            <ul>
+                <?php echo 'Welcome, ' . $_SESSION['email']; ?>
+                <li><a href="addstory.php">Add Story</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <h1>Edit Story</h1>
-        <?php
-    // Retrieve the story to be edited from the database
-    $story_id = $_GET['id'];
-    $conn = mysqli_connect('localhost', 'username', 'password', 'database_name');
-    $query = "SELECT * FROM stories WHERE id=$story_id";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
-  ?>
         <div class="formholder">
-            <form action="update_story.php?id=<?php echo $story_id ?>" method="post" enctype="multipart/form-data">
+            <form method="POST">
                 <label for="title">Title:</label>
-                <input type="text" name="title" value="<?php echo $row['title'] ?>" required>
-                <br>
+                <input type="text" name="title" value="<?php echo $title; ?>" required>
+
+                <br><br>
+
                 <label for="location">Location:</label>
-                <textarea name="location" required><?php echo $row['persona'] ?></textarea>
-                <br>
+                <input type="text" name="location" value="<?php echo $location; ?>" required>
+
+                <br><br>
+
                 <label for="story">Story:</label>
-                <textarea name="story" required><?php echo $row['story'] ?></textarea>
-                <br>
-                <label for="image">Image:</label>
-                <input type="file" name="image">
-                <br>
-                <input type="submit" value="Update">
+                <textarea name="story" required><?php echo $story; ?></textarea>
+
+                <br><br>
+
+                <label for="image">Image URL:</label>
+                <input type="text" name="image" value="<?php echo $image; ?>">
+
+                <br><br>
+
+                <input type="submit" value="Save Changes">
             </form>
         </div>
     </main>
