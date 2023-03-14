@@ -6,5 +6,5 @@ story TEXT NOT NULL,
 image VARCHAR(255),
 user_id INT(11) NOT NULL,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-FOREIGN KEY (user_id) REFERENCES users(id)
+FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
