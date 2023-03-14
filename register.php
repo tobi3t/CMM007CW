@@ -25,7 +25,7 @@
     <main>
         <h2>Sign Up</h2>
         <div class="formholder">
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <form method="post" action="signup.php">
                 <label for="name">Name:</label>
                 <input type="text" name="name" value="<?php echo isset($_POST["name"]) ? htmlspecialchars($_POST["name"]) : ""; ?>" required>
                 <label for="email">Email:</label>

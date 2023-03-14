@@ -1,48 +1,70 @@
 <?php
 include("connection.php");
 
-$name = $email = $password = $confirm_password = "";
-$name_error = $email_error = $password_error = $confirm_password_error = "";
+$errors = [];
 
 if(isset($_POST['register'])) {
 	// Validate name
 	if(empty($_POST['name'])) {
-		$name_error = "Name is required";
+		$errors['name'] = "Name is required";
 	} else {
 		$name = test_input($_POST['name']);
 		if(!preg_match("/^[a-zA-Z ]*$/", $name)) {
-			$name_error = "Only letters and white space allowed";
+			$errors['name'] = "Only letters and white space allowed";
 		}
 	}
 
 	// Validate email
 	if(empty($_POST['email'])) {
-		$email_error = "Email is required";
+		$errors['email'] = "Email is required";
 	} else {
 		$email = test_input($_POST['email']);
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			$email_error = "Invalid email format";
+			$errors['email'] = "Invalid email format";
+		} else {
+			$domain = substr(strrchr($email, "@"), 1);
+			if(!checkdnsrr($domain, "MX")) {
+				$errors['email'] = "Invalid email domain";
+			}
 		}
 	}
 
 	// Validate password
 	if(empty($_POST['password'])) {
-		$password_error = "Password is required";
+		$errors['password'] = "Password is required";
 	} else {
 		$password = test_input($_POST['password']);
 		if(strlen($password) < 8) {
-			$password_error = "Password must be at least 8 characters";
+			$errors['password'] = "Password must be at least 8 characters";
 		}
 	}
 
 	// Validate confirm password
 	if(empty($_POST['confirm_password'])) {
-		$confirm_password_error = "Please confirm password";
+		$errors['confirm_password'] = "Please confirm password";
 	} else {
 		$confirm_password = test_input($_POST['confirm_password']);
 		if($confirm_password !== $password) {
-			$confirm_password_error = "Passwords do not match";
+			$errors['confirm_password'] = "Passwords do not match";
 		}
 	}
+
+	if(empty($errors)) {
+		// Use prepared statements to insert data into database
+		$stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
+		$stmt->bind_param("sss", $name, $email, $password);
+		$stmt->execute();
+		
+		// Redirect user to login page
+		header("Location: login.php");
+		exit();
+	}
+}
+
+function test_input($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
 }
 ?>
