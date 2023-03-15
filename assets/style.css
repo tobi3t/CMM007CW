@@ -189,7 +189,7 @@ strong {
 }
 
 .hero {
-	background-image: url('https://via.placeholder.com/1200x400');
+	background-image: url('./images/image2.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
