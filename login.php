@@ -14,11 +14,11 @@
     <header>
         <nav>
             <ul id>
-                <li><a href="index.php">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="browsestories.php">Stories</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.php">Contact Us</a></li>
+                <li><a href="register.html">Sign Up</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
@@ -38,7 +38,7 @@
         </div>
         <br>
         <div>
-            <h6>New User? <a href="register.php">Sign Up</a></h6>
+            <h6>New User? <a href="register.html">Sign Up</a></h6>
         </div>
     </main>
     <footer>
@@ -48,7 +48,7 @@
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="faq.php">Frequently Asked Questions</a></li>
+                            <li><a href="faq.html">Frequently Asked Questions</a></li>
                         </ul>
                     </nav>
                 </div>

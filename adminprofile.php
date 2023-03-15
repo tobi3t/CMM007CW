@@ -1,22 +1,17 @@
 <?php
-// Start the session to retrieve the storyteller's authentication status
 session_start();
 
 include("connection.php");
 
-// Create a new database connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check if the connection was successful
 if ($conn->connect_error) {
 die('Connection failed: ' . $conn->connect_error);
 }
 
-// Prepare the SQL statement to select all stories
 $sql = "SELECT id, title, location, story, image FROM stories";
 $stmt = $conn->prepare($sql);
 
-// Execute the statement
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
@@ -51,7 +46,6 @@ $result = $stmt->get_result();
         <th>Location</th>
         <th>Story</th>
         <th>Image</th>
-        <th>Edit</th>
         <th>Delete</th>
       </tr>
     </thead>

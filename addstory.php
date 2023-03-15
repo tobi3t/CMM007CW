@@ -1,10 +1,8 @@
 <?php
-// Start the session to retrieve the storyteller's authentication status
 session_start();
 
-// Check if the storyteller is not authenticated, if yes, redirect to the login page
 if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
-  header('Location: index.php');
+  header('Location: index.html');
   exit;
 }
 ?>
@@ -70,7 +68,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
             <input type="file" name="image">
             <br>
   
-            <input type="hidden" name="user_id" value="user_id"> <!-- Replace [user_id] with the actual user ID -->
+            <input type="hidden" name="user_id" value="user_id"> 
   
             <button type="submit">Submit</button>
         </form>
@@ -78,24 +76,6 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
     </main>
     <footer>
         <p>&copy; 2023 Touries Inc. All rights reserved.</p>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <nav>
-                        <ul>
-                            <li><a href="faq.php">Frequently Asked Questions</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col">
-                    <nav>
-                        <ul>
-                            <li><a href="contactus.php">Reader's Feedback</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

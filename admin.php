@@ -14,11 +14,11 @@
     <header>
         <nav>
             <ul id>
-                <li><a href="index.php">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="browsestories.php">Stories</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.php">Contact Us</a></li>
+                <li><a href="register.html">Sign Up</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>

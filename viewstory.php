@@ -14,22 +14,34 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.php">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="browsestories.php">Stories</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.php">Contact Us</a></li>
+                <li><a href="register.html">Sign Up</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="row">
-                <div class="col">Col One</div>
-                <div class="col">Col Two</div>
-                <div class="col">Col Three</div>
-            </div>
-        </div>
+        <?php
+            include("connection.php");
+
+            $id = $_GET['id'];
+
+            $sql = "SELECT * FROM stories WHERE id = '$id'";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+	            $row = mysqli_fetch_assoc($result);
+	            echo "<h2>" . $row["title"] . "</h2>";
+	            echo "<p>" . $row["location"] . "</p>";
+	            echo "<p>" . $row["story"] . "</p>";
+            } else {
+	            echo "Story not found.";
+            }
+
+            mysqli_close($conn);
+            ?>
     </main>
     <footer>
         <p>&copy; 2023 Touries Inc. All rights reserved.</p>
@@ -38,14 +50,14 @@
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="faq.php">Frequently Asked Questions</a></li>
+                            <li><a href="faq.html">Frequently Asked Questions</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="contactus.php">Reader's Feedback</a></li>  
+                            <li><a href="contactus.html">Reader's Feedback</a></li>
                         </ul>
                     </nav>
                 </div>

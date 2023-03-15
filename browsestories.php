@@ -14,11 +14,11 @@
     <header>
         <nav>
             <ul id>
-                <li><a href="index.php">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="browsestories.php">Stories</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Sign Up</a></li>
-                <li><a href="contactus.php">Contact Us</a></li>
+                <li><a href="register.html">Sign Up</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
@@ -28,32 +28,19 @@
             <table>
               <tr>
                 <th>Title</th>
-                <th>Persona</th>
-                <th>Scenario</th>
+                <th>Location</th>
                 <th>Story</th>
                 <th>Image</th>
+                <th>View Story</th>
               </tr>
               <?php
-              $servername = "localhost";
-              $username = "username";
-              $password = "password";
-              $dbname = "myDB";
-          
-              // Create connection
-              $conn = new mysqli($servername, $username, $password, $dbname);
-          
-              // Check connection
-              if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-              }
-          
+              include("connection.php");
               $sql = "SELECT * FROM stories";
               $result = $conn->query($sql);
           
               if ($result->num_rows > 0) {
-                // output data of each row
                 while($row = $result->fetch_assoc()) {
-                  echo "<tr><td>" . $row["title"]. "</td><td>" . $row["persona"]. "</td><td>" . $row["scenario"]. "</td><td>" . $row["story"]. "</td><td>" . $row["image"]. "</td></tr>";
+                  echo "<tr><td>" . $row["title"]. "</td><td>" . $row["location"]. "</td><td>" . $row["story"]. "</td><td>" . $row["image"]. "</td></tr>";
                 }
               } else {
                 echo "0 results";
@@ -70,14 +57,14 @@
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="faq.php">Frequently Asked Questions</a></li>
+                            <li><a href="faq.html">Frequently Asked Questions</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col">
                     <nav>
                         <ul>
-                            <li><a href="contactus.php">Reader's Feedback</a></li>  
+                            <li><a href="contactus.html">Reader's Feedback</a></li>  
                         </ul>
                     </nav>
                 </div>

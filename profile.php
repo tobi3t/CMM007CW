@@ -1,31 +1,24 @@
 <?php
-// Start the session to retrieve the storyteller's authentication status
 session_start();
 
-// Check if the storyteller is not authenticated, if yes, redirect to the login page
 if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
-  header('Location: index.php');
+  header('Location: index.html');
   exit;
 }
 include("connection.php");
 
-// Get the user ID from the URL parameter
 $user_id = $_SESSION['user_id'];
 
-// Create a new database connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check if the connection was successful
 if ($conn->connect_error) {
   die('Connection failed: ' . $conn->connect_error);
 }
 
-// Prepare the SQL statement to select stories by user ID
 $sql = "SELECT id, title, location, story, image FROM stories WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 
-// Execute the statement
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
