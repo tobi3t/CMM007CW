@@ -24,30 +24,27 @@
     </header>
     <main>
         <div>
-            <h1>View Stories</h1>
-            <table>
-              <tr>
-                <th>Title</th>
-                <th>Location</th>
-                <th>Story</th>
-                <th>Image</th>
-                <th>View Story</th>
-              </tr>
-              <?php
-              include("connection.php");
-              $sql = "SELECT * FROM stories";
-              $result = $conn->query($sql);
-          
-              if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                  echo "<tr><td>" . $row["title"]. "</td><td>" . $row["location"]. "</td><td>" . $row["story"]. "</td><td>" . $row["image"]. "</td></tr>";
-                }
-              } else {
-                echo "0 results";
-              }
-              $conn->close();
-              ?>
-            </table>
+            <h2>View Stories</h2>
+            <div class="centre">
+                <?php
+                    include("connection.php");
+                
+                    $sql = "SELECT * FROM stories";
+                    $result = $conn->query($sql);
+                
+                    if ($result->num_rows > 0) {
+                        echo "<div class='story-list'>";
+                        while($row = $result->fetch_assoc()) {
+                            echo "<div class='story-item'>" . $row["title"] . " (" . $row["location"] . ") <a href='viewstory.php?id=" . $row["id"] . "'>View</a></div>";
+                        }
+                        echo "</div>";
+                    } else {
+                        echo "0 results";
+                    }
+                
+                    $conn->close();
+                ?>                
+            </div>
         </div>
     </main>
     <footer>

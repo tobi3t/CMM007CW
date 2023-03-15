@@ -23,25 +23,28 @@
         </nav>
     </header>
     <main>
-        <?php
-            include("connection.php");
+    <?php
+include("connection.php");
 
-            $id = $_GET['id'];
+$id = $_GET['id'];
 
-            $sql = "SELECT * FROM stories WHERE id = '$id'";
-            $result = mysqli_query($conn, $sql);
+$sql = "SELECT * FROM stories WHERE id = '$id'";
+$result = mysqli_query($conn, $sql);
 
-            if (mysqli_num_rows($result) > 0) {
-	            $row = mysqli_fetch_assoc($result);
-	            echo "<h2>" . $row["title"] . "</h2>";
-	            echo "<p>" . $row["location"] . "</p>";
-	            echo "<p>" . $row["story"] . "</p>";
-            } else {
-	            echo "Story not found.";
-            }
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    echo "<div class='story-container'>";
+    echo "<h2 class='story-title'>" . $row["title"] . "</h2>";
+    echo "<p class='story-meta'>" . $row["location"] . "</p>";
+    echo "<p class='story-content'>" . $row["story"] . "</p>";
+    echo "</div>";
+} else {
+    echo "Story not found.";
+}
 
-            mysqli_close($conn);
-            ?>
+mysqli_close($conn);
+?>
+
     </main>
     <footer>
         <p>&copy; 2023 Touries Inc. All rights reserved.</p>

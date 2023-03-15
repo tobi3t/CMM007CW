@@ -32,35 +32,63 @@ $result = $stmt->get_result();
         <nav>
             <ul>
                 <?php echo 'Welcome, Admin'; ?>
-                <li><a href="addstory.php">Add Story</a></li>
+                <li><a href="feedbackadmin.php">View Customer Feedback</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
     <main>
-    <h1>My Stories</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Location</th>
-        <th>Story</th>
-        <th>Image</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php while ($row = $result->fetch_assoc()): ?>
-        <tr>
-          <td><?php echo $row['title']; ?></td>
-          <td><?php echo $row['location']; ?></td>
-          <td><?php echo $row['story']; ?></td>
-          <td><?php echo $row['image']; ?></td>
-          <td><a href="deleteinadmin.php?id=<?php echo $row['id']; ?>">Delete</a></td>
-        </tr>
-      <?php endwhile; ?>
-    </tbody>
-  </table>
+    <div>
+    <?php
+include("connection.php"); 
+
+$sql_users = "SELECT COUNT(*) AS num_users FROM users";
+$result_users = mysqli_query($conn, $sql_users);
+$row_users = mysqli_fetch_assoc($result_users);
+$num_users = $row_users['num_users'];
+
+$sql_stories = "SELECT COUNT(*) AS num_stories FROM stories";
+$result_stories = mysqli_query($conn, $sql_stories);
+$row_stories = mysqli_fetch_assoc($result_stories);
+$num_stories = $row_stories['num_stories'];
+
+echo "<h2>Number of users: " . $num_users . "</h2><br>";
+echo "<h2>Number of stories: " . $num_stories."</h2>";
+
+$sql = "SELECT * FROM stories";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Story</th>
+            <th>Image</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>
+              <td>" . $row["title"]. "</td>
+              <td>" . $row["location"]. "</td>
+              <td>" . $row["story"]. "</td>
+              <td>" . $row["image"]. "</td>
+              <td><a href='deleteinadmin.php?id=" . $row["id"]. "'>Delete</a></td>
+            </tr>";
+    }
+    echo "</tbody></table>";
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
+
+    </div>
+  
     </main>
     <footer>
         <p>&copy; 2023 Touries Inc. All rights reserved.</p>

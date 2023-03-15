@@ -1,9 +1,8 @@
-/* BODY */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: url(./images/image1.jpg);
+  background: url(./images/image.jpg);
 }
 
 form.search-form {
@@ -35,7 +34,6 @@ form.search-form input[type=submit]:hover {
 	background-color: #45a049;
 }
 
-/* HEADER AND NAVIGATION */
 header {
   background-color: #000000;
   color: #fff;
@@ -68,7 +66,7 @@ nav a:hover {
   text-align: center;
 }
 
-/* MAIN CONTENT */
+
 main {
   padding: 20px;
 }
@@ -226,6 +224,27 @@ strong {
 	color: #fff;
 }
 
+.story-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.story-title {
+  font-size: 32px;
+  margin: 20px 0;
+}
+
+.story-meta {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.story-content {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
 table {
   border-collapse: collapse;
   margin: 50px auto;
@@ -237,11 +256,21 @@ th, td {
   border: 1px solid black;
 }
 th {
-  background-color: #0fe228;
+  background-color: #000000;
   color: white;
 }
 
-/* FOOTER */
+.story-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.story-item {
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
 footer {
   background-color: #000000;
   color: #fff;

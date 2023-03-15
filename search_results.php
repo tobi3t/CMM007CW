@@ -23,27 +23,29 @@
         </nav>
     </header>
     <main>
-	<?php
-		include("connection.php");
+		<div class="centre">
+			<?php
+			include("connection.php");
 
 
-		$search = $_POST['search'];
+			$search = $_POST['search'];
 
 
-		$sql = "SELECT * FROM stories WHERE title LIKE '%$search%' OR location LIKE '%$search%' OR story LIKE '%$search%'";
-		$result = mysqli_query($conn, $sql);
+			$sql = "SELECT * FROM stories WHERE title LIKE '%$search%' OR location LIKE '%$search%' OR story LIKE '%$search%'";
+			$result = mysqli_query($conn, $sql);
 
-		if (mysqli_num_rows($result) > 0) {
-			while($row = mysqli_fetch_assoc($result)) {
-				echo "<h4><a href='viewstory.php?id=" . $row["id"] . "'>" . $row["title"] . "</a></h4>";
-				echo "<p><h3>Location:</h3>" . $row["location"] . "</p>";
+			if (mysqli_num_rows($result) > 0) {
+				while($row = mysqli_fetch_assoc($result)) {
+					echo "<h4><a href='viewstory.php?id=" . $row["id"] . "'>" . $row["title"] . "</a></h4>";
+					echo "<p>Location:" . $row["location"] . "</p>";
+				}
+			} else {
+				echo "No results found.";
 			}
-		} else {
-			echo "No results found.";
-		}
 
-		mysqli_close($conn);
-		?>
+			mysqli_close($conn);
+			?>
+		</div>
     </main>
     <footer>
         <p>&copy; 2023 Touries Inc. All rights reserved.</p>
