@@ -2,11 +2,6 @@
 // Start the session to retrieve the storyteller's authentication status
 session_start();
 
-// Check if the storyteller is not authenticated, if yes, redirect to the login page
-if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
-  header('Location: index.php');
-  exit;
-}
 include("connection.php");
 
 // Create a new database connection
@@ -41,7 +36,7 @@ $result = $stmt->get_result();
     <header>
         <nav>
             <ul>
-                <?php echo 'Welcome, ' . $_SESSION['username']; ?>
+                <?php echo 'Welcome, Admin'; ?>
                 <li><a href="addstory.php">Add Story</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
