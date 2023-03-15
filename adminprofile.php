@@ -1,19 +1,5 @@
 <?php
 session_start();
-
-include("connection.php");
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-die('Connection failed: ' . $conn->connect_error);
-}
-
-$sql = "SELECT id, title, location, story, image FROM stories";
-$stmt = $conn->prepare($sql);
-
-$stmt->execute();
-$result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -31,62 +17,60 @@ $result = $stmt->get_result();
     <header>
         <nav>
             <ul>
-                <?php echo 'Welcome, Admin'; ?>
+                <li><a href="adminprofile.php"><?php echo 'Welcome, Admin'; ?></a></li>
                 <li><a href="feedbackadmin.php">View Customer Feedback</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
     <main>
-    <div>
-    <?php
-include("connection.php"); 
+        <h1>Dashboard</h1>
+        <div>
+        <?php
+            include("connection.php"); 
 
-$sql_users = "SELECT COUNT(*) AS num_users FROM users";
-$result_users = mysqli_query($conn, $sql_users);
-$row_users = mysqli_fetch_assoc($result_users);
-$num_users = $row_users['num_users'];
+            $sql_users = "SELECT COUNT(*) AS num_users FROM users";
+            $result_users = mysqli_query($conn, $sql_users);
+            $row_users = mysqli_fetch_assoc($result_users);
+            $num_users = $row_users['num_users'];
 
-$sql_stories = "SELECT COUNT(*) AS num_stories FROM stories";
-$result_stories = mysqli_query($conn, $sql_stories);
-$row_stories = mysqli_fetch_assoc($result_stories);
-$num_stories = $row_stories['num_stories'];
+            $sql_stories = "SELECT COUNT(*) AS num_stories FROM stories";
+            $result_stories = mysqli_query($conn, $sql_stories);
+            $row_stories = mysqli_fetch_assoc($result_stories);
+            $num_stories = $row_stories['num_stories'];
 
-echo "<h2>Number of users: " . $num_users . "</h2><br>";
-echo "<h2>Number of stories: " . $num_stories."</h2>";
+            echo "<h2>Number of storytellers: " . $num_users . "</h2>";
+            echo "<h2>Number of stories: " . $num_stories."</h2>";
 
-$sql = "SELECT * FROM stories";
-$result = $conn->query($sql);
+            $sql = "SELECT * FROM stories";
+            $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    echo "<table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Story</th>
-            <th>Image</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>";
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<tr>
-              <td>" . $row["title"]. "</td>
-              <td>" . $row["location"]. "</td>
-              <td>" . $row["story"]. "</td>
-              <td>" . $row["image"]. "</td>
-              <td><a href='deleteinadmin.php?id=" . $row["id"]. "'>Delete</a></td>
-            </tr>";
-    }
-    echo "</tbody></table>";
-} else {
-    echo "0 results";
-}
-$conn->close();
-?>
-
+            if ($result->num_rows > 0) {
+                echo "<table>
+                        <thead>
+                        <tr>
+                        <th>Title</th>
+                        <th>Location</th>
+                        <th>View Story</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>";
+    
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                        <td>" . $row["title"]. "</td>
+                        <td>" . $row["location"]. "</td>
+                        <td><a href='viewstoryadmin.php?id=" . $row["id"]. "'>View</a></td>
+                        <td><a href='deleteinadmin.php?id=" . $row["id"]. "'>Delete</a></td>
+                        </tr>";
+                }
+                echo "</tbody></table>";
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+        ?>
     </div>
   
     </main>
