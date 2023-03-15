@@ -9,21 +9,17 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
 }
 include("connection.php");
 
-// Get the user ID from the URL parameter
-$user_id = $_SESSION['user_id'];
-
 // Create a new database connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check if the connection was successful
 if ($conn->connect_error) {
-  die('Connection failed: ' . $conn->connect_error);
+die('Connection failed: ' . $conn->connect_error);
 }
 
-// Prepare the SQL statement to select stories by user ID
-$sql = "SELECT id, title, location, story, image FROM stories WHERE user_id = ?";
+// Prepare the SQL statement to select all stories
+$sql = "SELECT id, title, location, story, image FROM stories";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
 
 // Execute the statement
 $stmt->execute();
@@ -45,7 +41,7 @@ $result = $stmt->get_result();
     <header>
         <nav>
             <ul>
-                <?php echo 'Welcome, ' . $_SESSION['email']; ?>
+                <?php echo 'Welcome, ' . $_SESSION['username']; ?>
                 <li><a href="addstory.php">Add Story</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
@@ -71,8 +67,7 @@ $result = $stmt->get_result();
           <td><?php echo $row['location']; ?></td>
           <td><?php echo $row['story']; ?></td>
           <td><?php echo $row['image']; ?></td>
-          <td><a href="editstory.php?id=<?php echo $row['id']; ?>">Edit</a></td>
-          <td><a href="deletestory.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+          <td><a href="deleteinadmin.php?id=<?php echo $row['id']; ?>">Delete</a></td>
         </tr>
       <?php endwhile; ?>
     </tbody>
