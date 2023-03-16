@@ -72,7 +72,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
                 }
                 echo "</tbody></table>";
             } else {
-                echo "0 results";
+                echo " ";
             }
             $conn->close();
         ?>
