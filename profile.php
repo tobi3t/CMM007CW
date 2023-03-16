@@ -38,7 +38,7 @@ $result = $stmt->get_result();
     <header>
         <nav>
             <ul>
-                <?php echo 'Welcome, ' . $_SESSION['email']; ?>
+                <li><a href="profile.php"><?php echo 'Welcome, ' . $_SESSION['email']; ?></a></li>
                 <li><a href="addstory.php">Add Story</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
