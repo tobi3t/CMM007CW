@@ -37,7 +37,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
   
             <label for="location">Location:</label>
                 <select id="location" name="location" required>
-                    <option value="Aberdeenshire">London</option>
+                    <option value="Aberdeenshire">Aberdeenshire</option>
                     <option value="London">London</option>
                     <option value="Manchester">Manchester</option>
                     <option value="Birmingham">Birmingham</option>
