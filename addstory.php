@@ -58,6 +58,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
                     <option value="Norwich">Norwich</option>
                     <option value="Plymouth">Plymouth</option>
                     <option value="Exeter">Exeter</option>
+                    <option value="Cornwall">Cornwall</option>
                 </select>
                 <br>
   
