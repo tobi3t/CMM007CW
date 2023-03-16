@@ -40,7 +40,7 @@
         </div>
         <br>
         <div>
-            <h6>Not an Admin? <a href="login.html">User Login Instead</a></h6>
+            <h6>Not an Admin? <a href="login.php">User Login Instead</a></h6>
         </div>
     </main>
     <footer>
