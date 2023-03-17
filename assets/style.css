@@ -2,14 +2,13 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: url(./images/image.jpg);
 }
 
 form.search-form {
 	margin-left: 20px;
 
   margin: auto;
-	width: 50%;
+	width: 30%;
 	padding: 20px;
 	background-color: #f2f2f2;
 }
@@ -31,7 +30,7 @@ form.search-form input[type=submit] {
 }
 
 form.search-form input[type=submit]:hover {
-	background-color: #05096d;
+	background-color: #23278f;
 }
 
 header {
