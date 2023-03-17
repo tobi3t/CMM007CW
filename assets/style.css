@@ -6,11 +6,10 @@ body {
 
 form.search-form {
 	margin-left: 20px;
-
   margin: auto;
 	width: 30%;
 	padding: 20px;
-	background-color: #f2f2f2;
+	background-color: #ffffff;
 }
 
 form.search-form input[type=text] {
@@ -21,7 +20,7 @@ form.search-form input[type=text] {
 }
 
 form.search-form input[type=submit] {
-	background-color: #7194b0;
+	background-color: #dadada;
 	color: white;
 	padding: 10px 20px;
 	border: none;
@@ -30,7 +29,7 @@ form.search-form input[type=submit] {
 }
 
 form.search-form input[type=submit]:hover {
-	background-color: #23278f;
+	background-color: #7194b0;
 }
 
 header {
@@ -85,9 +84,9 @@ h6 {
 
 .formholder {
 	margin: auto;
-	width: 50%;
+	width: 40%;
 	padding: 20px;
-	background-color: #f2f2f2;
+	background-color: #f7f7f7;
 }
 
 h2 {
@@ -242,7 +241,6 @@ strong {
   font-size: 16px;
   line-height: 1.5;
 }
-
 
 table {
   border-collapse: collapse;
