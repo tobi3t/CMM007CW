@@ -9,7 +9,7 @@ $password = $_POST['password'];
 
 if(empty($name) || empty($email) || empty($password)) {
 	$_SESSION['error'] = "All fields are required.";
-	header('Location: index.php');
+	header('Location: register.php');
 	exit();
 }
 
