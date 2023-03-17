@@ -30,9 +30,9 @@
             <?php } ?>
             <form action="signin.php" method="POST">
               <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required>
+              <input placeholder= "Enter a registered email address" type="email" id="email" name="email" required>
               <label for="password">Password:</label>
-              <input type="password" id="password" name="password" required>
+              <input placeholder= "Enter your password" type="password" id="password" name="password" required>
               <input type="submit" value="Sign In">
             </form>
         </div>
