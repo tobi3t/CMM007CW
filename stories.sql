@@ -8,3 +8,7 @@ user_id INT(11) NOT NULL,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+
+ALTER TABLE stories
+MODIFY image BLOB;
+
