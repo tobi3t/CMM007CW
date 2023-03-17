@@ -117,7 +117,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #000000;
+  background-color: #7194b0;
 }
 
 form label {
@@ -250,10 +250,10 @@ table {
 th, td {
   padding: 10px;
   text-align: left;
-  border: 1px solid black;
+  border: 1px solid #040781;
 }
 th {
-  background-color: #000000;
+  background-color: #7194b0;
   color: white;
 }
 
@@ -266,6 +266,29 @@ th {
 .story-item {
   padding: 5px 0;
   border-bottom: 1px solid #ccc;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.box {
+  background-color: #7194b0;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color:#ffffff
+}
+
+.box h2 {
+  margin-bottom: 10px;
+}
+
+.box p {
+  font-size: 2em;
+  font-weight: bold;
 }
 
 footer {

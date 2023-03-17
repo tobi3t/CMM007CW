@@ -43,10 +43,20 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
             $result_stories = mysqli_query($conn, $sql_stories);
             $row_stories = mysqli_fetch_assoc($result_stories);
             $num_stories = $row_stories['num_stories'];
+            ?>
 
-            echo "<h2>Number of storytellers: " . $num_users . "</h2>";
-            echo "<h2>Number of stories: " . $num_stories."</h2>";
-
+            <div class="dashboard">
+                <div class="box">
+                    <h2>Number of Storytellers</h2>
+                    <p><?php echo $num_users; ?></p>
+                </div>
+                <div class="box">
+                    <h2>Number of Stories</h2>
+                    <p><?php echo $num_stories; ?></p>
+                </div>
+            </div>
+            
+            <?php
             $sql = "SELECT * FROM stories";
             $result = $conn->query($sql);
 

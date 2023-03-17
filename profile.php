@@ -45,32 +45,35 @@ $result = $stmt->get_result();
         </nav>
     </header>
     <main>
-    <h1>My Stories</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Location</th>
-        <th>Story</th>
-        <th>Image</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-      while ($row = $result->fetch_assoc()): ?>
-        <tr>
-          <td><?php echo $row['title']; ?></td>
-          <td><?php echo $row['location']; ?></td>
-          <td><?php echo $row['story']; ?></td>
-          <td><?php echo $row['image']; ?></td>
-          <td><a href="editstory.php?id=<?php echo $row['id']; ?>">Edit</a></td>
-          <td><a href="deletestory.php?id=<?php echo $row['id']; ?>">Delete</a></td>
-        </tr>
-      <?php endwhile; ?>
-    </tbody>
-  </table>
+      <h1>My Stories</h1>
+      <?php if ($result->num_rows > 0): ?>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Story</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php while ($row = $result->fetch_assoc()): ?>
+            <tr>
+              <td><?php echo $row['title']; ?></td>
+              <td><?php echo $row['location']; ?></td>
+              <td><?php echo $row['story']; ?></td>
+              <td><?php echo $row['image']; ?></td>
+              <td><a href="editstory.php?id=<?php echo $row['id']; ?>">Edit</a></td>
+              <td><a href="deletestory.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+            </tr>
+          <?php endwhile; ?>
+        </tbody>
+      </table>
+    <?php else: ?>
+      <h6>No stories found.</h6>
+    <?php endif; ?>
     </main>
     <footer>
         <p>&copy; 2023 Touries Inc. All rights reserved.</p>
