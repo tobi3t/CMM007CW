@@ -86,7 +86,7 @@ h6 {
 	margin: auto;
 	width: 40%;
 	padding: 20px;
-	background-color: #f7f7f7;
+	background-color: #ffffff;
 }
 
 h2 {
@@ -103,8 +103,8 @@ input[type=text], input[type=email], input[type=password] {
 	padding: 12px 20px;
 	margin: 8px 0;
 	box-sizing: border-box;
-	border: none;
-	border-bottom: 2px solid #ddd;
+	border: 1px solid #000000;
+	border-bottom: 1px solid #000000;
 }
 
 button[type="submit"] {
@@ -129,7 +129,7 @@ form label {
 input,
 textarea {
   padding: 10px;
-  border: 2px solid #ccc;
+  border: 1px solid #000000;
   border-radius: 4px;
   box-sizing: border-box;
   margin-bottom: 10px;
