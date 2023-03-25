@@ -32,6 +32,13 @@ form.search-form input[type=submit]:hover {
 	background-color: #7194b0;
 }
 
+.formholder {
+	margin: auto;
+	width: 40%;
+	padding: 20px;
+	background-color: #ffffff;
+}
+
 header {
   background-color: #7194b0;
   color: #fff;
@@ -64,7 +71,6 @@ nav a:hover {
   text-align: center;
 }
 
-
 main {
   padding: 20px;
 }
@@ -80,13 +86,6 @@ h2 {
 
 h6 {
   text-align: center;
-}
-
-.formholder {
-	margin: auto;
-	width: 40%;
-	padding: 20px;
-	background-color: #ffffff;
 }
 
 h2 {
