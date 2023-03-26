@@ -9,7 +9,7 @@ $password = $_POST['password'];
 
 if(empty($name) || empty($email) || empty($password)) {
 	$_SESSION['error'] = "All fields are required.";
-	header('Location: register.php');
+	header('Location: register.html');
 	exit();
 }
 
@@ -17,7 +17,7 @@ $sql = "SELECT * FROM users WHERE email = '$email'";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) > 0) {
 	$_SESSION['error'] = "Email already exists.";
-	header('Location: register.php');
+	header('Location: register.html');
 	exit();
 }
 
@@ -28,7 +28,7 @@ if(mysqli_query($conn, $sql)) {
 	exit();
 } else {
 	$_SESSION['error'] = "Registration failed.";
-	header('Location: register.php');
+	header('Location: register.html');
 	exit();
 }
 ?>
