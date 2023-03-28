@@ -30,7 +30,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
     </header>
     <main>
         <div class="formholder">
-        <form method="POST" action="add_story.php">
+        <form method="POST" action="add_story.php" enctype="multipart/form-data">
             <label for="title">Title:</label>
             <input type="text" name="title" id="title" required>
             <br>
@@ -72,7 +72,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] != true) {
   
             <input type="hidden" name="user_id" value="user_id"> 
   
-            <button type="submit">Submit</button>
+            <button type="submit" name= "submit">Submit</button>
         </form>
         </div>
     </main>

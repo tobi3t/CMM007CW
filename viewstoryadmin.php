@@ -42,6 +42,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
                 $row = mysqli_fetch_assoc($result);
                 echo "<div class='story-container'>";
                 echo "<h2 class='story-title'>" . $row["title"] . "</h2>";
+                echo "<img src='" . $row['image'] . "' alt='Uploaded Image' style='width: 100%; max-width: 700px;'>";
                 echo "<p class='story-meta'><strong>Location: </strong>" . $row["location"] . "</p>";
                 echo "<p class='story-content'>" . $row["story"] . "</p>";
                 echo "</div>";
